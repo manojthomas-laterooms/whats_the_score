@@ -1,0 +1,7 @@
+{
+  "extends": ["laterooms"],
+  "rules": {
+    "arrow-parens": 0,
+    "comma-dangle": [2, "only-multiline"]
+  }
+}

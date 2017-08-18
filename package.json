@@ -1,0 +1,51 @@
+{
+    "name": "whats_the_score",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:manojthomas-laterooms/whats_the_score.git",
+    "author": "Manoj Thomas <manoj.thomas@laterooms.com>",
+    "license": "MIT",
+    "engines": {
+        "node": "6"
+    },
+    "scripts": {
+        "start": "node dist",
+        "build": "yarn babel",
+        "clean": "del {dist}",
+        "lint": "eslint src",
+        "babel:watch": "BABEL_ENV=server-dev babel src --out-dir dist --copy-files -w",
+        "babel:dev": "BABEL_ENV=server-dev babel src --out-dir dist --copy-files",
+        "babel": "BABEL_ENV=production babel src --out-dir dist --copy-files",
+        "server:dev": "NODE_ENV=dev supervisor -i src,test dist",
+        "dev": "yarn run babel:dev && concurrently 'yarn run babel:watch' 'yarn run server:dev'"
+    },
+    "dependencies": {
+        "babel-preset-env": "^1.6.0",
+        "body-parser": "^1.17.2",
+        "express": "^4.15.4",
+        "graphql": "^0.10.5",
+        "graphql-server-express": "^1.1.0",
+        "graphql-tools": "^1.2.1",
+        "lodash": "^4.17.4",
+        "node-fetch": "^1.7.2",
+        "prettier": "^1.5.3"
+    },
+    "devDependencies": {
+        "autoprefixer": "^7.1.2",
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.1",
+        "babel-preset-latest": "^6.24.1",
+        "babel-preset-node6": "^11.0.0",
+        "babel-preset-react": "^6.24.1",
+        "concurrently": "^3.5.0",
+        "eslint": "^4.4.1",
+        "eslint-config-airbnb": "^15.1.0",
+        "eslint-config-laterooms": "^2.0.0",
+        "eslint-plugin-ava": "^4.2.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-react": "^7.2.1",
+        "supervisor": "^0.12.0"
+    }
+}
