@@ -2,11 +2,12 @@ import footballDataApi, { footballDataQuery } from '../../../../football-data-ap
 
 export default() => Promise.all([
     footballDataApi(footballDataQuery.fixtures())
-]).then(([fixtures]) => {
+]).then(([fixturesResult]) => {
 
-    console.log(fixtures);
+    console.log(require('util').inspect(fixturesResult.fixtures.slice(0, 1), { depth: null }));
 
     return {
-        count: 1000
+        count: fixturesResult.count,
+        results: fixturesResult.fixtures
     };
 });
